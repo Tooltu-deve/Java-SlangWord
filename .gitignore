@@ -1,0 +1,13 @@
+# Build output
+out/
+*.class
+
+# Generated data (rebuilt from data/slang.txt)
+data/dictionary.dat
+data/history.txt
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.iml
