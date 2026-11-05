@@ -11,3 +11,5 @@ data/history.txt
 .idea/
 .vscode/
 *.iml
+
+.claude/
