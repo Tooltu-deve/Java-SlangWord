@@ -46,22 +46,50 @@ public class FileManager {
     }
 
     public static void saveData(SlangDictionary dict) throws IOException {
-
+        try(ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(DATA_FILE)))){
+            out.writeObject(dict);
+        }
     }
 
     public static SlangDictionary loadData(){
-        return null;
+        if(!new File(DATA_FILE).exists()) return null;
+        try(ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(DATA_FILE)))){
+            Object obj = in.readObject();
+            if(obj instanceof SlangDictionary){
+                return (SlangDictionary) obj;
+            }
+            return null;
+        } catch(IOException | ClassNotFoundException e){
+            System.err.println("Không đọc được " + DATA_FILE + ": " + e);
+            return null;
+        }
     }
 
     public static List<String> loadHistory(){
-        return new ArrayList<>();
+        List<String> res = new ArrayList<>();
+        if(!new File(HISTORY_FILE).exists()) return res;
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(HISTORY_FILE), StandardCharsets.UTF_8))){
+            String line;
+            while((line = br.readLine()) != null){
+                res.add(line);
+            }
+        } catch(IOException e){
+            System.err.println("Không đọc được " + HISTORY_FILE + ": " + e);
+        }
+        return res;
     }
 
     public static void appendHistory(String entry){
-       
+        entry = entry.replace('\n', ' ').replace('\r', ' ');
+        try(BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(HISTORY_FILE, true), StandardCharsets.UTF_8))){
+            bw.write(entry);
+            bw.newLine();
+        } catch(IOException e){
+            System.err.println("Không ghi được " + HISTORY_FILE + ": " + e);
+        }
     }
 
     public static void clearHistory(){
-        
+        new File(HISTORY_FILE).delete();
     }
 }
