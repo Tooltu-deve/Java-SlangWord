@@ -2,6 +2,7 @@ import java.io.IOException;
 import javax.swing.*;
 
 public class Main {
+    //Tham khảo AI
     public static void main(String[] args){
         SlangDictionary dict = FileManager.loadData();
         if(dict == null){

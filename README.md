@@ -1,6 +1,10 @@
 # Slang Dictionary
 
-Từ điển slang viết bằng Java Swing (DAMH#1).
+1. MSSV - Họ tên - Email: 24127578
+2. Họ tên: Nguyễn Tấn Tú
+3. Email: tunguyen19606@gmail.com
+4. Link demo YouTube: https://youtu.be/Ci9o8kgSGBs
+5. Phần trăm tham khảo: 30%
 
 ## Yêu cầu
 - JDK/JRE **11 trở lên**

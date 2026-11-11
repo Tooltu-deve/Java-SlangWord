@@ -52,6 +52,7 @@ public class SlangDictionary implements Serializable{
         return res;
     }
 
+    //Tham khảo AI
     // slang truyền vào phải đã normalize
     private void index(String slang){
         List<String> defs = slangMap.get(slang);
@@ -66,6 +67,7 @@ public class SlangDictionary implements Serializable{
         }
     }
 
+    //Tham khảo AI
     // slang truyền vào phải đã normalize; gọi TRƯỚC khi sửa/xoá nghĩa
     private void unindex(String slang){
         List<String> defs = slangMap.get(slang);
@@ -120,6 +122,7 @@ public class SlangDictionary implements Serializable{
         return true;
     }
 
+    //Tham khảo AI
     public void overwrite(String slang, String definition){
         slang = normalize(slang);
         if(slangMap.containsKey(slang)){

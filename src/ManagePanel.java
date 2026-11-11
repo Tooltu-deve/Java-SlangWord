@@ -94,6 +94,7 @@ public class ManagePanel extends JPanel implements Refreshable {
         return table.convertRowIndexToModel(view);
     }
 
+    //Tham khảo AI
     private void addSlang(){
         JTextField slangField = new JTextField(15);
         JTextField defField = new JTextField(30);
@@ -155,6 +156,7 @@ public class ManagePanel extends JPanel implements Refreshable {
         status.setText("Sửa thành công!");
     }
 
+    //Tham khảo AI
     private void deleteSlang(){
         int row = selectedRow();
         if(row == -1) return;
@@ -169,6 +171,7 @@ public class ManagePanel extends JPanel implements Refreshable {
         reload();
         status.setText("Đã xoá \"" + slang + "\"");
     }
+
 
     private void resetDict(){
         int ok = JOptionPane.showConfirmDialog(this, "Khôi phục từ điển gốc? Mọi thay đổi sẽ mất.", "Reset",
